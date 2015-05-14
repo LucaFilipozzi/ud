@@ -1,0 +1,10 @@
+Django
+python-daemon
+django-ldapdb
+IPy
+lockfile
+M2Crypto
+mako
+pycountry
+pyme
+pyparsing
