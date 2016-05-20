@@ -1,1 +1,19 @@
-{{ name }}
+<h1>{{ machine.hostname }}</h1>
+
+<dl>
+    <dt>Architecture</dt>
+    <dd>{{ machine.architecture }}</dd>
+
+    <dt>Purpose</dt>
+    <dd>
+        <ul>
+        {% for purpose in machine.purpose %}
+            <li>{{ purpose }}</li>
+        {% endfor%}
+        </ul>
+    <dd>
+
+    <dt>Hostnames</dt>
+    <dd>{{ machine.hostnames }}</dd>
+</dl>
+
