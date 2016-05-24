@@ -5,5 +5,5 @@ import machines.views
 
 urlpatterns = patterns('',
     url(r'^$', machines.views.all_machines),
-    url(r'^/(?P<machine_name>[a-zA-Z]+)$', machines.views.detail, name='detail'),
+    url(r'^/(?P<machine_name>[a-z0-9\-\.]+)$', machines.views.detail, name='detail'),
 )
