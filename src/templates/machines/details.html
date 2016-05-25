@@ -1,23 +1,24 @@
 {% extends 'machines/base.html' %}
 
 {% block content %}
-    <h1 class="h1class">{{ machine.hostname }}</h1>
+    <h1>Information about {{ machine.hostname }}</h1>
     
-    <dl>
-        <dt>Architecture</dt>
-        <dd>{{ machine.architecture }}</dd>
-    
-        <dt>Purpose</dt>
-        <dd>
-            <ul>
-            {% for purpose in machine.purpose %}
-                <li>{{ purpose }}</li>
-            {% endfor%}
-            </ul>
-        <dd>
-    
-        <dt>Hostnames</dt>
-        <dd>{{ machine.hostnames }}</dd>
-    </dl>
+    <ul>
+        <li><b>Architecture</b> :{{ machine.architecture }}</li>
+        <li><b>Purpose</b> :
+              <ul>
+              {% for purpose in machine.purpose %}
+                  <li>{{ purpose }}</li>
+              {% endfor%}
+              </ul>
+        </li>
+        <li><b>Hostnames</b> :
+              <ul>
+              {% for name in machine.hostnames %}
+                  <li>{{ name }}</li>
+              {% endfor%}
+              </ul>
+        </li>
+    </ul>
 {% endblock %}
 

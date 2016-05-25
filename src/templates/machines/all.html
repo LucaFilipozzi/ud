@@ -3,14 +3,28 @@
 {% load url from future %}
 
 {% block content %}
-    <h1 class="h1class">debian.org Developer Machines</h1>
+    <h1>Summary</h1>
     
-    <table>
+    <table id="machines" class="tablesorter" border="1" cellpadding="0" cellspacing="1">
+        <thead>
+            <tr>
+                <th>Hostname</th>
+                <th>Architecture</th>
+                <th>Purpose</th>
+            </tr>
+        </thead>
+
     {% for machine in machines %}
         <tr>
             <td><a href="{% url 'machines:detail' machine.hostname %}">{{ machine.hostname }}</a></td>
             <td>{{ machine.architecture }}</td>
-            <td>{{ machine.purpose }}</td>
+            <td>
+                <ul>
+                {% for purpose in machine.purpose %}
+                    <li>{{ purpose }}</li>
+                {% endfor %}
+                </ul>
+            </td>
         </tr>
     {% endfor %}
     </table>
