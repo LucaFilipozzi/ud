@@ -1,13 +1,18 @@
-{% load url from future %}
-<h1>debian.org Developer Machines</h1>
+{% extends 'machines/base.html' %}
 
-<table>
-{% for machine in machines %}
-    <tr>
-        <td><a href="{% url 'machines:detail' machine.hostname %}">{{ machine.hostname }}</a></td>
-        <td>{{ machine.architecture }}</td>
-        <td>{{ machine.purpose }}</td>
-    </tr>
-{% endfor %}
-</table>
+{% load url from future %}
+
+{% block content %}
+    <h1>debian.org Developer Machines</h1>
+    
+    <table>
+    {% for machine in machines %}
+        <tr>
+            <td><a href="{% url 'machines:detail' machine.hostname %}">{{ machine.hostname }}</a></td>
+            <td>{{ machine.architecture }}</td>
+            <td>{{ machine.purpose }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
 
