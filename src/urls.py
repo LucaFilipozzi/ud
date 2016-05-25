@@ -28,7 +28,7 @@ import machines.urls
 
 
 urlpatterns = patterns('',
-    (r'^machines', include(machines.urls, namespace="machines")),
+    (r'^machine', include(machines.urls, namespace="machines")),
     # Example:
     # (r'^ud/', include('ud.foo.urls')),
 
