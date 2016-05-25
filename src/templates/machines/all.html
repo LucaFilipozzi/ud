@@ -1,9 +1,10 @@
+{% load url from future %}
 <h1>debian.org Developer Machines</h1>
 
 <table>
 {% for machine in machines %}
     <tr>
-        <td><a href="/machines/{{ machine.hostname }}">{{ machine.hostname }}</a></td>
+        <td><a href="{% url 'machines:detail' machine.hostname %}">{{ machine.hostname }}</a></td>
         <td>{{ machine.architecture }}</td>
         <td>{{ machine.purpose }}</td>
     </tr>
