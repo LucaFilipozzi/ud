@@ -1,9 +1,7 @@
 {% extends 'machines/base.html' %}
 
-{% load url from future %}
-
 {% block content %}
-    <h1>{{ machine.hostname }}</h1>
+    <h1 class="h1class">{{ machine.hostname }}</h1>
     
     <dl>
         <dt>Architecture</dt>
@@ -21,9 +19,5 @@
         <dt>Hostnames</dt>
         <dd>{{ machine.hostnames }}</dd>
     </dl>
-    
-    {% url 'machines:all' as url %}
-    
-    <a href="{{ url }}">debian.org Developer Machines</a>
 {% endblock %}
 

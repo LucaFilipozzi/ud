@@ -1,8 +1,76 @@
-<html>
-    <head>
-    </head>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Debian Project -- debian.org Developer Machines</title>
+  <link rev="made" href="mailto:webmaster@debian.org">
+  <link type="text/css" href="https://db.debian.org/js/jquery-tablesorter/themes/blue/style.css" rel="stylesheet">
+  <link type="text/css" href="https://db.debian.org/js/jquery-tablesorter/addons/pager/jquery.tablesorter.pager.css" rel="stylesheet">
+  <link href="https://db.debian.org/debian.css" rel="stylesheet" type="text/css">
+  <link href="https://db.debian.org/debdb.css" rel="stylesheet" type="text/css">
+  <link href="https://db.debian.org/debian-en.css" rel="stylesheet" type="text/css" media="all">
+  <script language="javascript" type="text/javascript" src="https://db.debian.org/js/jquery/jquery.js"></script>
+  <script language="javascript" type="text/javascript" src="https://db.debian.org/js/jquery-metadata/jquery.metadata.js"></script>
+  <script language="javascript" type="text/javascript" src="https://db.debian.org/js/jquery-tablesorter/jquery.tablesorter.js"></script>
+  <script language="javascript" type="text/javascript" src="https://db.debian.org/js/jquery-tablesorter/addons/pager/jquery.tablesorter.pager.js"></script>
+  <script type="text/javascript">
+	$(function() {
+		$("#machines").tablesorter({widthFixed: true, widgets: ['zebra']})
+		$(".sort").removeAttr("href")
+	});
+  </script>
+</head>
     <body>
+      <div id="header">
+         <div id="upperheader">
+           <div id="logo">
+              <a href="https://www.debian.org/"><img src="https://db.debian.org/Pics/openlogo-50.png" width="50" height="61" alt=""></a>
+           </div> <!-- end logo -->
+           <p class="section"><a href="/">db</a></p>
+         </div> <!-- end upperheader -->
+         <!--UdmComment-->
+         <div id="navbar">
+           <p class="hidecss"><a href="#inner">Skip Quicknav</a></p>
+           <ul>
+              <li><a href="https://www.debian.org/intro/about">About Debian</a></li>
+              <li><a href="https://www.debian.org/News/">News</a></li>
+              <li><a href="https://www.debian.org/distrib/">Getting Debian</a></li>
+              <li><a href="https://www.debian.org/support">Support</a></li>
+              <li><a href="https://www.debian.org/devel/">Developers'&nbsp;Corner</a></li>
+              <li><a href="https://www.debian.org/sitemap">Site map</a></li>
+              <li><a href="http://search.debian.org/">Search</a></li>
+           </ul>
+         </div> <!-- end navbar -->
+{% load url from future %}
+{% url 'machines:all' as url %}
+<p id="breadcrumbs"><a href="./">db.debian.org</a> / <a href="{{ url }}">machines</a></p>
+      </div> <!-- end header -->
+      <!--/UdmComment-->
+      <div id="content">
        {% block content %}
        {% endblock %}
+      </div>
+
+      <br>
+      <p>
+        <a href="https://people.debian.org/~joey/misc/naming.html">Debian Host Naming Scheme</a>&nbsp;&nbsp;&nbsp;<a href="doc-hosts.html">SSH Keys</a><br>
+        Not all Debian hardware is maintained by the Debian System Administrators. For a (partial) list of systems controlled by others please see <a href="https://wiki.debian.org/Teams/DSA/non-DSA-HW">the non-DSA-HW wiki page</a>.
+      </p>
+      <hr noshade width="100%" size="1">
+      <small>
+        You can contact us at
+        <a href="mailto:admin@db.debian.org">admin@db.debian.org</a>.
+      </small>
+      <p>
+      <p>
+        <small>
+        Last Modified: Mon, Apr 25 02:52:03 UTC 2016
+        <br>
+        Copyright &copy; 1997-2016
+       <a href="http://www.spi-inc.org/">SPI</a>; See <a href="https://www.debian.org/license" rel="copyright">license terms</a><br>
+        Debian is a registered trademark of Software in the Public Interest, Inc.
+        </small>
+      </p>
+
     </body>
 </html>
