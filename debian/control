@@ -25,6 +25,7 @@ Depends:
  python-lockfile,
  python-m2crypto,
  python-mako,
+ python-nameparser,
  python-pycountry,
  python-pyme,
  python-pyparsing,
