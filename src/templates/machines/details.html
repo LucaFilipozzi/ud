@@ -1,5 +1,7 @@
 {% extends 'machines/base.html' %}
 
+{% load wiki_link %}
+
 {% block content %}
     <h1>Information about {{ machine.hostname }}</h1>
     
@@ -15,7 +17,7 @@
         <li><b>Purpose</b> :
             <ul>
             {% for purpose in machine.purpose %}
-                <li>{{ purpose }}</li>
+                <li>{{ purpose|wiki_link|safe }}</li>
             {% endfor%}
             </ul>
         </li>
