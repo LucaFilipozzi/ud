@@ -2,6 +2,8 @@
 
 {% load url from future %}
 
+{% load wiki_link %}
+
 {% block content %}
     <h1>Summary</h1>
     
@@ -21,7 +23,7 @@
             <td>
                 <ul>
                 {% for purpose in machine.purpose %}
-                    <li>{{ purpose }}</li>
+                    <li>{{ purpose|wiki_link|safe }}</li>
                 {% endfor %}
                 </ul>
             </td>
