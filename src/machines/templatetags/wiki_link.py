@@ -7,8 +7,34 @@ register = template.Library()
 
 @register.filter
 @stringfilter
-def wiki_link(value):
-    regexp = re.compile(r"""(?P<before>[a-z \.]*) # text before the link
+def wiki_links(value):
+    chunks = _split_texts_and_links(value)
+    if len(chunks) == 1:
+        result = _wiki_link(value)
+    else:
+        result = "".join([
+            _wiki_link(chunk)
+            for chunk
+            in chunks
+            if chunk])
+    return result
+
+def _split_texts_and_links(s):
+    chunks = []
+    current = []
+    for chunk in re.split("(\]\])", s):
+        if not current:
+            current.append(chunk)
+        if chunk == "]]":
+            current.append(chunk)
+            chunks.append("".join(current))
+            current = []
+    if current:
+        chunks.extend(current)
+    return chunks
+
+def _wiki_link(value):
+    regexp = re.compile(r"""(?P<before>[a-z- \.]*) # text before the link
             \[\[                                 # [[
             [-\*]?                                # sometimes url starts with a '*' or '-'
             (?P<link>[a-z0-9- |\.]+)              # url|text
@@ -37,5 +63,5 @@ def wiki_link(value):
         urlized = value
     return urlized
 
-register.filter('wiki_link', wiki_link)
+register.filter('wiki_links', wiki_links)
 
