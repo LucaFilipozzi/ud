@@ -4,24 +4,24 @@
 
 {% block content %}
     <h1>Information about {{ machine.hostname }}</h1>
-    
+ 
     <ul>
-        <li><b>Hostname</b> : {{ machine.hostname }}</li>
-        <li><b>Architecture</b> : {{ machine.architecture }}</li>
-        <li><b>Processor</b> : {{ machine.machine }}</li>
-        <li><b>SSH host key</b> :
+        <li><b>Hostname</b>: {{ machine.hostname }}</li>
+        <li><b>Architecture</b>: {{ machine.architecture }}</li>
+        <li><b>Processor</b>: {{ machine.machine }}</li>
+        <li><b>SSH host key</b>:
             {% for info in machine.sshRSAHostKey %}
                 {{ info }}<br />
             {% endfor %}
         </li>
-        <li><b>Purpose</b> :
+        <li><b>Purpose</b>:
             <ul>
             {% for purpose in machine.purpose %}
                 <li>{{ purpose|wiki_links|safe }}</li>
             {% endfor%}
             </ul>
         </li>
-        <li><b>Hostnames</b> :
+        <li><b>Hostnames</b>:
             <ul>
             {% for name in machine.hostnames %}
                 <li>{{ name }}</li>
