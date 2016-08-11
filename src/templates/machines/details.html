@@ -8,12 +8,16 @@
     <ul>
         <li><b>Hostname</b>: {{ machine.hostname }}</li>
         <li><b>Architecture</b>: {{ machine.architecture }}</li>
+        <li><b>Distribution</b>: {{ machine.distribution }}</li>
         <li><b>Processor</b>: {{ machine.machine }}</li>
+        <li><b>Bandwidth</b>: {{ machine.bandwidth }}</li>
+        <li><b>Status</b>: {{ machine.status }}</li>
         <li><b>SSH host key</b>:
             {% for info in machine.sshRSAHostKey %}
                 {{ info }}<br />
             {% endfor %}
         </li>
+        <li><b>Description</b>: {{ machine.description }}</li>
         <li><b>Purpose</b>:
             <ul>
             {% for purpose in machine.purpose %}
