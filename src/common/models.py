@@ -481,6 +481,11 @@ class __LdapDebianServer(ldapdb.models.Model):
                                     validators=[])                                      # TODO validator
     hostname.permissions        = { 'self': 'none', 'root': 'read' }
 
+    admin                       = CharField(db_column='admin',
+                                    validators=[])                                      # TODO validator
+
+    admin.permissions           = { 'self': 'none', 'root': 'read' }
+
     architecture                = CharField(db_column='architecture',
                                     validators=[])                                      # TODO validator
     architecture.permissions    = { 'self': 'none', 'root': 'read' }
@@ -496,6 +501,15 @@ class __LdapDebianServer(ldapdb.models.Model):
     status                      = CharField(db_column='status',
                                     validators=[])                                      # TODO validator
     status.permissions          = { 'self': 'none', 'root': 'read' }
+
+    memory                      = CharField(db_column='memory',
+                                    validators=[])                                      # TODO validator
+    memory.permissions          = { 'self': 'none', 'root': 'read' }
+
+    disk                        = CharField(db_column='disk',
+                                    validators=[])                                      # TODO validator
+
+    disk.permissions            = { 'self': 'none', 'root': 'read' }
 
     bandwidth                   = CharField(db_column='bandwidth',
                                     validators=[])                                      # TODO validator
