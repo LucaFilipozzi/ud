@@ -498,6 +498,10 @@ class __LdapDebianServer(ldapdb.models.Model):
                                     validators=[])                                      # TODO validator
     distribution.permissions    = { 'self': 'none', 'root': 'read' }
 
+    sponsors                    = ListField(db_column='sponsor',
+                                    validators=[], null=True, blank=True)               # TODO validator
+    sponsors.permissions        = { 'self': 'none', 'root': 'read' }
+
     status                      = CharField(db_column='status',
                                     validators=[])                                      # TODO validator
     status.permissions          = { 'self': 'none', 'root': 'read' }

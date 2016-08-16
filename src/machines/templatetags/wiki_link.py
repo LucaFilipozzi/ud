@@ -37,7 +37,7 @@ def _wiki_link(value):
     regexp = re.compile(r"""(?P<before>[a-z- \.]*) # text before the link
             \[\[                                 # [[
             [-\*]?                                # sometimes url starts with a '*' or '-'
-            (?P<link>[a-z0-9- |\.]+)              # url|text
+            (?P<link>[a-zA-Z0-9- |\.]+)              # url|text
             \]\]                                  # ]]
             (?P<after>.*)                         # text after the link
             """,
