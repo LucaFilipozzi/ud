@@ -11,15 +11,27 @@
         <thead>
             <tr>
                 <th>Hostname</th>
+                <th>Description</th>
                 <th>Architecture</th>
                 <th>Purpose</th>
+                <th>Sponsors</th>
+                <th>Status</th>
+                <th>Access</th>
             </tr>
         </thead>
 
     {% for machine in machines %}
         <tr>
             <td><a href="{% url 'machines:detail' machine.hostname %}">{{ machine.hostname }}</a></td>
+            <td>{{ machine.description }}</td>
             <td>{{ machine.architecture }}</td>
+            <td>
+                <ul>
+                {% for sponsor in machine.sponsors %}
+                    <li>{{ sponsor|wiki_links|safe }}</li>
+                {% endfor%}
+                </ul>
+            </td>
             <td>
                 <ul>
                 {% for purpose in machine.purpose %}
@@ -27,6 +39,8 @@
                 {% endfor %}
                 </ul>
             </td>
+            <td>{{ machine.status }}</td>
+            <td>{{ machine.access }}</td>
         </tr>
     {% endfor %}
     </table>
