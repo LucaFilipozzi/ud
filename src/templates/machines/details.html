@@ -18,11 +18,27 @@
             {% endfor%}
             </ul>
         </li>
+
+        {% if machine.machine %}
         <li><b>Processor</b>: {{ machine.machine }}</li>
+        {% endif %}
+
+        {% if machine.memory %}
         <li><b>Memory</b>: {{ machine.memory }}</li>
+        {% endif %}
+
+        {% if machine.disk %}
         <li><b>Disk space</b>: {{ machine.disk }}</li>
+        {% endif %}
+
+        {% if machine.bandwidth %}
         <li><b>Bandwidth</b>: {{ machine.bandwidth }}</li>
+        {% endif %}
+
+        {% if machine.status %}
         <li><b>Status</b>: {{ machine.status }}</li>
+        {% endif %}
+
         <li><b>SSH host key</b>:
             {% for info in machine.sshRSAHostKey %}
                 {{ info }}<br />
