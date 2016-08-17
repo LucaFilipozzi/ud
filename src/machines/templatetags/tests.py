@@ -23,6 +23,9 @@ class Test(unittest.TestCase):
     def test_link_with_ampersand_in_description(self):
         self.assertEqual('<a href="http://url.com">description & stuff</a>', wiki_link.wiki_links("[[url.com|description & stuff]]"))
 
+    def test_link_with_accentuated_character_in_description(self):
+        self.assertEqual(u'<a href="http://url.com">Umeå éèà</a>', wiki_link.wiki_links(u"[[url.com|Umeå éèà]]"))
+
     def test_link_start_with_star(self):
         self.assertEqual('<a href="http://url.com">url.com</a>', wiki_link.wiki_links("[[*url.com]]"))
 
