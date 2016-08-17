@@ -34,10 +34,10 @@ def _split_texts_and_links(s):
     return chunks
 
 def _wiki_link(value):
-    regexp = re.compile(u"""(?P<before>[a-z- \.]*) # text before the link
+    regexp = re.compile(u"""(?P<before>[\w\- \.]*) # text before the link
             \[\[                                 # [[
             [-\*]?                                # sometimes url starts with a '*' or '-'
-            (?P<link>[\w\- /|\.\(\)\&]+)          # url|text
+            (?P<link>[\w\- ,/|\.\(\)\&]+)         # url|text
             \]\]                                  # ]]
             (?P<after>.*)                         # text after the link
             """,

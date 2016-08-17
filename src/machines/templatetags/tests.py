@@ -23,6 +23,9 @@ class Test(unittest.TestCase):
     def test_link_with_ampersand_in_description(self):
         self.assertEqual('<a href="http://url.com">description & stuff</a>', wiki_link.wiki_links("[[url.com|description & stuff]]"))
 
+    def test_link_with_coma_in_description(self):
+        self.assertEqual('<a href="http://url.com">description, stuff</a>', wiki_link.wiki_links("[[url.com|description, stuff]]"))
+
     def test_link_with_accentuated_character_in_description(self):
         self.assertEqual(u'<a href="http://url.com">Umeå éèà</a>', wiki_link.wiki_links(u"[[url.com|Umeå éèà]]"))
 
@@ -36,7 +39,7 @@ class Test(unittest.TestCase):
         self.assertEqual('<a href="http://url.com">url.com</a> <a href="http://other.org">other.org</a>', wiki_link.wiki_links("[[url.com]] [[other.org]]"))
 
     def test_text_before_and_after_link(self):
-        self.assertEqual('hello <a href="http://url.com">url.com</a> bye bye', wiki_link.wiki_links("hello [[url.com]] bye bye"))
+        self.assertEqual(u'hello å <a href="http://url.com">url.com</a> bye bye å', wiki_link.wiki_links("hello å [[url.com]] bye bye å"))
 
 
 if __name__ == '__main__':
