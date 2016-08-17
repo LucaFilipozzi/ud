@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import unittest
 
 import wiki_link
@@ -9,6 +11,9 @@ class Test(unittest.TestCase):
     def test_link(self):
         self.assertEqual('<a href="http://url.com">url.com</a>', wiki_link.wiki_links("[[url.com]]"))
 
+    def test_deep_link(self):
+        self.assertEqual('<a href="http://url.com/special/page">url.com/special/page</a>', wiki_link.wiki_links("[[url.com/special/page]]"))
+
     def test_link_with_description(self):
         self.assertEqual('<a href="http://url.com">interesting description</a>', wiki_link.wiki_links("[[url.com|interesting description]]"))
 
@@ -17,6 +22,7 @@ class Test(unittest.TestCase):
 
     def test_link_with_ampersand_in_description(self):
         self.assertEqual('<a href="http://url.com">description & stuff</a>', wiki_link.wiki_links("[[url.com|description & stuff]]"))
+
     def test_link_start_with_star(self):
         self.assertEqual('<a href="http://url.com">url.com</a>', wiki_link.wiki_links("[[*url.com]]"))
 
