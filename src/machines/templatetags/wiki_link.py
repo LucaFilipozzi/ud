@@ -52,9 +52,9 @@ def _wiki_link(value):
             text = url
         urlized = ''.join([
             m.group("before"),
-            "<a href=",
+            '<a href="http://',
             url,
-            ">",
+            '">',
             text,
             "</a>",
             m.group("after")

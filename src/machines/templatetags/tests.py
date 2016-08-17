@@ -7,19 +7,19 @@ class Test(unittest.TestCase):
         self.assertEqual("", wiki_link.wiki_links(""))
 
     def test_link(self):
-        self.assertEqual('<a href="url.com">url.com</a>', wiki_link.wiki_links("[[url.com]]"))
+        self.assertEqual('<a href="http://url.com">url.com</a>', wiki_link.wiki_links("[[url.com]]"))
 
     def test_link_with_description(self):
-        self.assertEqual('<a href="url.com">interesting description</a>', wiki_link.wiki_links("[[url.com|interesting description]]"))
+        self.assertEqual('<a href="http://url.com">interesting description</a>', wiki_link.wiki_links("[[url.com|interesting description]]"))
 
     def test_link_start_with_star(self):
-        self.assertEqual('<a href="url.com">url.com</a>', wiki_link.wiki_links("[[*url.com]]"))
+        self.assertEqual('<a href="http://url.com">url.com</a>', wiki_link.wiki_links("[[*url.com]]"))
 
     def test_link_with_minus(self):
-        self.assertEqual('<a href="url.com">url.com</a>', wiki_link.wiki_links("[[-url.com]]"))
+        self.assertEqual('<a href="http://url.com">url.com</a>', wiki_link.wiki_links("[[-url.com]]"))
 
     def test_several_links(self):
-        self.assertEqual('<a href="url.com">url.com</a> <a href="other.org">other.org</a>', wiki_link.wiki_links("[[url.com]] [[other.org]]"))
+        self.assertEqual('<a href="http://url.com">url.com</a> <a href="http://other.org">other.org</a>', wiki_link.wiki_links("[[url.com]] [[other.org]]"))
 
 
 
