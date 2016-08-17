@@ -15,6 +15,8 @@ class Test(unittest.TestCase):
     def test_link_with_parenthesis_in_description(self):
         self.assertEqual('<a href="http://url.com">description (DESC)</a>', wiki_link.wiki_links("[[url.com|description (DESC)]]"))
 
+    def test_link_with_ampersand_in_description(self):
+        self.assertEqual('<a href="http://url.com">description & stuff</a>', wiki_link.wiki_links("[[url.com|description & stuff]]"))
     def test_link_start_with_star(self):
         self.assertEqual('<a href="http://url.com">url.com</a>', wiki_link.wiki_links("[[*url.com]]"))
 
