@@ -9,7 +9,7 @@
   - python-lockfile
   - python-m2crypto
   - python-mako
-  - python-nameparser [1]
+  - python-nameparser
   - python-pycountry
   - python-pyme
   - python-pyparsing
@@ -68,5 +68,3 @@
 - things to do
   - add 'dirty' mixin
   - finish validators
-
-[1] http://pypi.python.org/pypi/nameparser
