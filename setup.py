@@ -18,7 +18,7 @@
 #
 # Copyright (C) 2013 Luca Filipozzi <lfilipoz@debian.org>
 
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name = 'ud',
