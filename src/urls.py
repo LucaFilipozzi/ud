@@ -24,7 +24,11 @@ from django.conf.urls.defaults import *
 # from django.contrib import admin
 # admin.autodiscover()
 
+import machines.urls
+
+
 urlpatterns = patterns('',
+    (r'^machine', include(machines.urls, namespace="machines")),
     # Example:
     # (r'^ud/', include('ud.foo.urls')),
 
